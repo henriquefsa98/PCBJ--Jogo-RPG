@@ -42,12 +42,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Caracteres
+  - name: Piso
     uniqueID: 4192644269
     locked: 0
-  - name: Piso
+  - name: Objetos
     uniqueID: 360941495
     locked: 0
-  - name: Objetos
+  - name: Caractere
     uniqueID: 3251401833
     locked: 0
