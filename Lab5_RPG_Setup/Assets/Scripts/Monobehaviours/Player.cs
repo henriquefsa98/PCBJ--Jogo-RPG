@@ -13,7 +13,32 @@ public class Player : Caractere
     {
         if (collision.gameObject.CompareTag("Coletavel"))
         {
-            collision.gameObject.SetActive(false);
+            Item DanoObjeto = collision.gameObject.GetComponent<Consumable>().item;
+            if (DanoObjeto != null)
+            {
+                print ("Acertou" + DanoObjeto.NomeObjeto);
+
+                switch (DanoObjeto.tipoItem)
+                {
+                    case Item.TipoItem.MOEDA:
+                        break;
+                    
+                    case Item.TipoItem.HEALTH:
+                        AjustePontosDano(DanoObjeto.quantidade);
+                        break;
+                    
+                    default:
+                        break;
+                }
+
+                collision.gameObject.SetActive(false);
+            }            
         }
+    }
+
+    public void AjustePontosDano (int quantidade)
+    {
+        PontosDano = PontosDano + quantidade;
+        print ("Ajuste Pontos Dano por: " + quantidade + ". Novo Valor = " + PontosDano);
     }
 }

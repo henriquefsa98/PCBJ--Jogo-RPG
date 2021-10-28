@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5145829507015719681}
   - component: {fileID: 5145829507015719680}
   - component: {fileID: 208052679518953562}
+  - component: {fileID: -3443438702966636775}
   m_Layer: 0
   m_Name: MoedaO
   m_TagString: Coletavel
@@ -119,3 +120,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.17
+--- !u!114 &-3443438702966636775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5145829507015719687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b681d653307d9142b7915afac245aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 1158d9e5e0178584788944ed8e9bb241, type: 2}
