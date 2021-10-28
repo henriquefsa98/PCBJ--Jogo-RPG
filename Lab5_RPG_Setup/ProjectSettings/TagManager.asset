@@ -49,6 +49,9 @@ TagManager:
   - name: Objetos
     uniqueID: 360941495
     locked: 0
-  - name: Caractere
+  - name: Consumiveis
     uniqueID: 3251401833
+    locked: 0
+  - name: Caractere
+    uniqueID: 2429989757
     locked: 0
