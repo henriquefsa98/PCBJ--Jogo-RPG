@@ -4,41 +4,55 @@ using UnityEngine;
 
 public class Player : Caractere
 {
-    private void /// <summary>
-    /// Sent when another object enters a trigger collider attached to this
-    /// object (2D physics only).
-    /// </summary>
-    /// <param name="other">The other Collider2D involved in this collision.</param>
-    OnTriggerEnter2D(Collider2D collision)
+    public HealthBar healthBarPrefab;               // referencia ao objeto prefab criado da HealthBar
+    HealthBar healthBar;
+    
+    private void Start()
+    {
+        healthBar.caractere = this;
+        pontosDano.valor = inicioPontosDano;
+        healthBar = Instantiate(healthBarPrefab);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Coletavel"))
         {
             Item DanoObjeto = collision.gameObject.GetComponent<Consumable>().item;
             if (DanoObjeto != null)
             {
-                print ("Acertou" + DanoObjeto.NomeObjeto);
+                bool DeveDesaparecer = false; 
+                // print ("Acertou" + DanoObjeto.NomeObjeto);
 
                 switch (DanoObjeto.tipoItem)
                 {
                     case Item.TipoItem.MOEDA:
+                        DeveDesaparecer = true;
                         break;
                     
                     case Item.TipoItem.HEALTH:
-                        AjustePontosDano(DanoObjeto.quantidade);
+                        DeveDesaparecer = AjustePontosDano(DanoObjeto.quantidade);
                         break;
                     
                     default:
                         break;
                 }
-
-                collision.gameObject.SetActive(false);
+                if (DeveDesaparecer)
+                {
+                    collision.gameObject.SetActive(false);
+                }
             }            
         }
     }
 
-    public void AjustePontosDano (int quantidade)
+    public bool AjustePontosDano (int quantidade)
     {
-        PontosDano = PontosDano + quantidade;
-        print ("Ajuste Pontos Dano por: " + quantidade + ". Novo Valor = " + PontosDano);
+        if (pontosDano.valor < MaxPontosDano)
+        {
+            pontosDano.valor = pontosDano.valor + quantidade;
+            print ("Ajuste PD por: " + quantidade + ". Novo Valor = " + pontosDano.valor);
+            return true;
+        }
+
+        else return false;     
     }
 }

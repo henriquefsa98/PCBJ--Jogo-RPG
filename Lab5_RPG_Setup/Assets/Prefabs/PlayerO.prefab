@@ -175,6 +175,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5354649798708830807}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d64f673f7cdf0a142914081cc7e36840, type: 3}
+  m_Script: {fileID: 11500000, guid: 94bd146a6937b6f44a7d0afef5f750e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pontosDano: {fileID: 0}
+  inicioPontosDano: 0
+  MaxPontosDano: 0
+  healthBarPrefab: {fileID: -2958984174001598648, guid: 4fb718d439f768648aacd9a1120144ea, type: 3}
