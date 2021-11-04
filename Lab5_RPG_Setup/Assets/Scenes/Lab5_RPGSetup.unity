@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &104228739 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -2958984174001598648, guid: 4fb718d439f768648aacd9a1120144ea, type: 3}
+  m_PrefabInstance: {fileID: 5745768838029466577}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e0d1b6a74f81014fb22d6dbc3adc161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &106978400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5218,8 +5229,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94bd146a6937b6f44a7d0afef5f750e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PontosDano: 0
-  MaxPontosDano: 0
+  pontosDano: {fileID: 11400000, guid: 438de080f63d940438dd9292896ec4b2, type: 2}
+  inicioPontosDano: 6
+  MaxPontosDano: 10
+  healthBarPrefab: {fileID: 104228739}
 --- !u!1 &1709430049
 GameObject:
   m_ObjectHideFlags: 0
