@@ -9,14 +9,14 @@ public class Inventario : MonoBehaviour
 
     Image[] itemImagens = new Image[numSlots];      // array de imagens
 
-    Item[] itens = new Item[numSlots];              // array de itens
+    Item[] items = new Item[numSlots];              // array de itens
 
     GameObject[] slots = new GameObject[numSlots];  // array de slots
     
     // Start is called before the first frame update
     void Start()
     {
-        // por hora vazio
+        CriaSlots();
     }
 
     // Update is called once per frame
@@ -33,8 +33,38 @@ public class Inventario : MonoBehaviour
             {
                 GameObject novoSlot = Instantiate(slotPrefab);
                 novoSlot.name = "ItemSlot_" + i;
-                // continuar daqui ...
+                novoSlot.transform.SetParent(gameObject.transform.GetChild(0).transform);
+                slots[i] = novoSlot;
+                itemImagens[i] = novoSlot.transform.GetChild(1).GetComponent<Image>();
+
             }
         }
+    }
+
+    public bool AddItem (Item itemToAdd)
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (items[i] != null && items[i].tipoItem == itemToAdd.tipoItem && itemToAdd.empilhavel == true)
+            {
+                items[i].quantidade = items[i].quantidade + 1;
+                Slot slotScript = slots[i].gameObject.GetComponent<Slot>();
+                Text quantidadeTexto = slotScript.qtdTexto;
+                quantidadeTexto.enabled = true;
+                quantidadeTexto.text = items[i].quantidade.ToString();
+                return true;
+            }
+
+            if (items[i] == null)
+            {
+                items[i] = Instantiate(itemToAdd);
+                items[i].quantidade = 1;
+                itemImagens[i].sprite = itemToAdd.sprite;
+                itemImagens[i].enabled = true;
+                return true;
+            }
+        }
+
+        return false;
     }
 }

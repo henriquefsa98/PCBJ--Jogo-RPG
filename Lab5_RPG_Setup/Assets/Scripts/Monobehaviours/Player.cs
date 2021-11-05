@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Player : Caractere
 {
+    public Inventario inventarioPrefab;             // referencia ao objeto prefab criado do inventario
+    Inventario inventario;
     public HealthBar healthBarPrefab;               // referencia ao objeto prefab criado da HealthBar
     HealthBar healthBar;
     
     private void Start()
     {
+        inventario = Instantiate(inventarioPrefab);
+        pontosDano.valor = inicioPontosDano;
         healthBar.caractere = this;
         pontosDano.valor = inicioPontosDano;
         healthBar = Instantiate(healthBarPrefab);
@@ -26,7 +30,8 @@ public class Player : Caractere
                 switch (DanoObjeto.tipoItem)
                 {
                     case Item.TipoItem.MOEDA:
-                        DeveDesaparecer = true;
+                        // DeveDesaparecer = true;
+                        DeveDesaparecer = inventario.AddItem(DanoObjeto); 
                         break;
                     
                     case Item.TipoItem.HEALTH:

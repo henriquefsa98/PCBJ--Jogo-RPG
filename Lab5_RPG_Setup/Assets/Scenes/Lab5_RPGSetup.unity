@@ -549,10 +549,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 760873971}
     m_Modifications:
+    - target: {fileID: 728800781838609573, guid: b1b476225ba0bdd4aa605d4156221999, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2435863371870941318, guid: b1b476225ba0bdd4aa605d4156221999, type: 3}
       propertyPath: qtdTexto
       value: 
       objectReference: {fileID: 2077996094}
+    - target: {fileID: 2551743306431911039, guid: b1b476225ba0bdd4aa605d4156221999, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829673760203677651, guid: b1b476225ba0bdd4aa605d4156221999, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475715231873556496, guid: b1b476225ba0bdd4aa605d4156221999, type: 3}
+      propertyPath: m_Name
+      value: SlotFundo
+      objectReference: {fileID: 0}
     - target: {fileID: 8228424161946959243, guid: b1b476225ba0bdd4aa605d4156221999, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5404,6 +5420,7 @@ MonoBehaviour:
   pontosDano: {fileID: 11400000, guid: 438de080f63d940438dd9292896ec4b2, type: 2}
   inicioPontosDano: 6
   MaxPontosDano: 10
+  inventarioPrefab: {fileID: 0}
   healthBarPrefab: {fileID: 104228739}
 --- !u!1 &1709430049
 GameObject:
@@ -8342,7 +8359,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 609684985}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -8506,6 +8523,10 @@ PrefabInstance:
     - target: {fileID: 2329471306424869397, guid: 687c2cdc7e1a3e04c829063c415f4ba0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576293774041204300, guid: 687c2cdc7e1a3e04c829063c415f4ba0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 687c2cdc7e1a3e04c829063c415f4ba0, type: 3}
