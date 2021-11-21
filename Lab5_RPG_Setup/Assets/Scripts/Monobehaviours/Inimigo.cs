@@ -6,7 +6,7 @@ public class Inimigo : Caractere
 {
     float pontosVida;                       // equivalente à saúde do inimigo
     public int forcaDano;                   // poder de dano
-
+    
     Coroutine danoCoroutine;
 
     // Start is called before the first frame update
@@ -49,12 +49,13 @@ public class Inimigo : Caractere
 
     public override IEnumerator DanoCaractere(int dano, float intervalo)
     {
-        while(true)
+        while(true) 
         {
+            StartCoroutine(FlickerCaractere());
             pontosVida = pontosVida - dano;
             if (pontosVida <= float.Epsilon)
             {
-                KillCaractere();
+                KillCaractere();                 
                 break;
             }
             

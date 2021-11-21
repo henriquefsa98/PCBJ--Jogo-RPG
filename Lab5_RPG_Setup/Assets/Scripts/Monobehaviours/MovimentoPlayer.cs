@@ -9,19 +9,20 @@ public class MovimentoPlayer : MonoBehaviour
 
     Animator animator;                          // guarda a componente do Controlador de Animação
 
-    string estadoAnimacao = "EstadoAnimacao";   // guarda o nome do parametro de animação
+    // string estadoAnimacao = "EstadoAnimacao";   // guarda o nome do parametro de animação        // Desnecessario com a Blend Tree (andar tree)
     Rigidbody2D rb2D;                           // guarda a componente CorpoRígido do Player
     
     // Start is called before the first frame update
 
-    enum EstadosCaractere
+    /* enum EstadosCaractere                        // Desnecessario pela Blend Tree (Andar Tree)
     {
         andaLeste = 1,
         andaOeste = 2,
         andaNorte = 3,
         andaSul = 4,
         idle = 5
-    }
+    } */
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -50,6 +51,21 @@ public class MovimentoPlayer : MonoBehaviour
         rb2D.velocity = Movimento * VelocidadeMovimento;
     }
 
+    void UpdateEstado()
+    {
+        if (Mathf.Approximately(Movimento.x, 0) && (Mathf.Approximately(Movimento.y, 0)))
+        {
+            animator.SetBool("Caminhando", false); 
+        }
+        else
+        {
+            animator.SetBool("Caminhando", true);
+        }
+        animator.SetFloat("dirX", Movimento.x);
+        animator.SetFloat("dirY", Movimento.y);
+    }
+
+    /*
     private void UpdateEstado()
     {
         if (Movimento.x > 0)
@@ -77,4 +93,5 @@ public class MovimentoPlayer : MonoBehaviour
             animator.SetInteger(estadoAnimacao, (int)EstadosCaractere.idle);
         }
     }
+    */
 }
