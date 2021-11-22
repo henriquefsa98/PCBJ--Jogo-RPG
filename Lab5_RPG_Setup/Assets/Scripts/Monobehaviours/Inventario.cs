@@ -47,8 +47,17 @@ public class Inventario : MonoBehaviour
         {
             if (items[i] != null && items[i].tipoItem == itemToAdd.tipoItem && itemToAdd.empilhavel == true)
             {
+                Debug.Log("Empilha item!");
                 items[i].quantidade = items[i].quantidade + 1;
+                //Slot slotScript = slots[i].gameObject.GetComponent<Slot>();
                 Slot slotScript = slots[i].gameObject.GetComponent<Slot>();
+                
+                Debug.Log("Objeto colhido = " + items[i].tipoItem);
+                Debug.Log("Nova Qtd = " + items[i].quantidade);
+
+                Debug.Log("slot em i = " + slots[i].name);
+
+                slotScript.qtdTexto.text = items[i].quantidade.ToString();
                 Text quantidadeTexto = slotScript.qtdTexto;
                 quantidadeTexto.enabled = true;
                 quantidadeTexto.text = items[i].quantidade.ToString();
@@ -61,6 +70,13 @@ public class Inventario : MonoBehaviour
                 items[i].quantidade = 1;
                 itemImagens[i].sprite = itemToAdd.sprite;
                 itemImagens[i].enabled = true;
+
+                Slot slotScript = slots[i].gameObject.GetComponent<Slot>();
+
+                Text quantidadeTexto = slotScript.qtdTexto;
+                quantidadeTexto.enabled = true;
+                quantidadeTexto.text = items[i].quantidade.ToString();
+
                 return true;
             }
         }
