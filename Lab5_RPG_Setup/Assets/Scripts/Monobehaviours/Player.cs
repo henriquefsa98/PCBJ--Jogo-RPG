@@ -9,6 +9,7 @@ public class Player : Caractere
     public HealthBar healthBarPrefab;               // referencia ao objeto prefab criado da HealthBar
     HealthBar healthBar;
     public PontosDano pontosDano;                   // tem o valor da "saúde" do objeto
+    public AudioSource weapon;                      // som do click da arma
     
     private void Start()
     {
@@ -17,6 +18,8 @@ public class Player : Caractere
         pontosDano.valor = inicioPontosDano;
         healthBar = Instantiate(healthBarPrefab);
         healthBar.caractere = this;
+
+        weapon = GetComponent<AudioSource>();
     }
 
     public override IEnumerator DanoCaractere(int dano, float intervalo)
@@ -70,15 +73,35 @@ public class Player : Caractere
                 {
                     case Item.TipoItem.MOEDA:
                         // DeveDesaparecer = true;
-                        DeveDesaparecer = inventario.AddItem(DanoObjeto); 
+                        DeveDesaparecer = inventario.AddItem(DanoObjeto);
                         break;
                     
                     case Item.TipoItem.HEALTH:
                         DeveDesaparecer = AjustePontosDano(DanoObjeto.quantidade);
                         break;
                     
-                    default:
+                    case Item.TipoItem.CRISTAL_AZUL:
+                        // DeveDesaparecer = true;
+                        DeveDesaparecer = inventario.AddItem(DanoObjeto); 
                         break;
+
+                    case Item.TipoItem.CRISTAL_PRATA:
+                        // DeveDesaparecer = true;
+                        DeveDesaparecer = inventario.AddItem(DanoObjeto); 
+                        break;
+                    
+                    case Item.TipoItem.CRISTAL_VERDE:
+                        // DeveDesaparecer = true;
+                        DeveDesaparecer = inventario.AddItem(DanoObjeto); 
+                        break;
+                    
+                    case Item.TipoItem.CRISTAL_VERMELHO:
+                        // DeveDesaparecer = true;
+                        DeveDesaparecer = inventario.AddItem(DanoObjeto); 
+                        break;
+
+                    default: 
+                        break; 
                 }
                 if (DeveDesaparecer)
                 {

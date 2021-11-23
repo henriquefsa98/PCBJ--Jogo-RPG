@@ -12,7 +12,12 @@ public class Item : ScriptableObject
     public enum TipoItem
     {
         MOEDA,
-        HEALTH
+        HEALTH,
+        CRISTAL_AZUL,
+
+        CRISTAL_PRATA,
+        CRISTAL_VERDE,
+        CRISTAL_VERMELHO
     }
 
     public TipoItem tipoItem;
