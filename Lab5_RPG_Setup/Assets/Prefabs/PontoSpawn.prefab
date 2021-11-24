@@ -43,5 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b14a23c23f19d54a985a4e99e90eb8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabParaSpawn: {fileID: 0}
+  prefabParaSpawn: {fileID: 5354649798708830807, guid: 2a8bfa0ab65760b4b8cd2b64bbc4848d, type: 3}
   intervaloRepeticao: 0

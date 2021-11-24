@@ -11,7 +11,7 @@ public class RPGGameManager : MonoBehaviour
 
     private void /// <summary>
     /// Awake is called when the script instance is being loaded.
-    /// </summary>
+    /// </summary> 
     Awake()
     {
         if (instanciaCompartilhada != null && instanciaCompartilhada != this)
@@ -44,7 +44,7 @@ public class RPGGameManager : MonoBehaviour
     public void /// <summary>
     /// Classe que inicializa o objeto do Player no ponto Spawn
     /// </summary>
-    SpawnPlayer()
+    SpawnPlayer() 
     {
         if (playerPontoSpawn != null)
         {

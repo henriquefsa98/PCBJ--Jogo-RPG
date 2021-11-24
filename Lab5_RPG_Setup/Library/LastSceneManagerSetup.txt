@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Lab5_RPGSetup.unity
+- path: Assets/Scenes/Tela 2.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
