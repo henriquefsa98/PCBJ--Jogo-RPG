@@ -5,13 +5,17 @@ using UnityEngine;
 public class Player : Caractere
 {
     public Inventario inventarioPrefab;             // referencia ao objeto prefab criado do inventario
-    Inventario inventario;
+    Inventario inventario;                          // declaração do inventário
     public HealthBar healthBarPrefab;               // referencia ao objeto prefab criado da HealthBar
     HealthBar healthBar;
     public PontosDano pontosDano;                   // tem o valor da "saúde" do objeto
     public AudioSource weapon;                      // som do click da arma
     
-    private void Start()
+    private void /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    Start()
     {
         inventario = Instantiate(inventarioPrefab);
         
@@ -22,7 +26,11 @@ public class Player : Caractere
         weapon = GetComponent<AudioSource>();
     }
 
-    public override IEnumerator DanoCaractere(int dano, float intervalo)
+    public override IEnumerator 
+    /// <summary>
+    /// IEnumerator responsável pelo dano do player
+    /// </summary>
+    DanoCaractere(int dano, float intervalo)
     {
         while (true)
         {
@@ -44,7 +52,11 @@ public class Player : Caractere
         }
     }
 
-    public override void ResetCaractere()
+    public override void 
+    /// <summary>
+    /// Reinicia o objeto player e seu inventario e vida
+    /// </summary>
+    ResetCaractere()
     {
         inventario = Instantiate(inventarioPrefab);
         healthBar = Instantiate(healthBarPrefab);
@@ -52,14 +64,23 @@ public class Player : Caractere
         pontosDano.valor = inicioPontosDano;
     }
 
-    public override void KillCaractere()
+    public override void 
+    /// <summary>
+    /// Responsável por "matar" o objeto player após morrer
+    /// </summary>
+    KillCaractere()
     {
         base.KillCaractere();
         Destroy(healthBar.gameObject);
         Destroy(inventario.gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void /// <summary>
+    /// Sent when another object enters a trigger collider attached to this
+    /// object (2D physics only).
+    /// </summary>
+    /// <param name="collision">The other Collider2D involved in this collision.</param>
+    OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Coletavel"))
         {
@@ -111,7 +132,11 @@ public class Player : Caractere
         }
     }
 
-    public bool AjustePontosDano (int quantidade)
+    public bool 
+    /// <summary>
+    /// Responsável pelo ajuste do PontosDano
+    /// </summary>
+    AjustePontosDano (int quantidade)
     {
         if (pontosDano.valor < MaxPontosDano)
         {

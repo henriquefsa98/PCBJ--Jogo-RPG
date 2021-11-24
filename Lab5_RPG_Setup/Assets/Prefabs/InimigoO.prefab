@@ -165,7 +165,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 2
 --- !u!95 &8068195222419200427
 Animator:
   serializedVersion: 3
@@ -176,7 +176,7 @@ Animator:
   m_GameObject: {fileID: 49726630698454423}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1c8f87332b9b3e64983af558c40b2122, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -199,5 +199,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidadePerseguicao: 1.4
   velocidadePerambular: 0.8
-  intervaloMudancaDirecao: 3
+  intervaloMudancaDirecao: 2
   perseguePlayer: 1

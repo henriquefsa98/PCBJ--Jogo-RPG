@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class PontoSpawn : MonoBehaviour
 {
-    public GameObject prefabParaSpawn;
+    public GameObject prefabParaSpawn;                              // prefeb do Spawn
     
-    public float intervaloRepeticao;
-    public void Start()
+    public float intervaloRepeticao;                                // int do intervalo de spawn do inimigo
+    
+    public void /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    Start()
     {
         if (intervaloRepeticao > 0)
         {
@@ -16,7 +21,11 @@ public class PontoSpawn : MonoBehaviour
 
     }
 
-    public GameObject SpawnO()
+    public GameObject 
+    /// <summary>
+    /// Objeto do Spawn
+    /// </summary>
+    SpawnO()
     {
         if (prefabParaSpawn != null)
         {
@@ -27,7 +36,10 @@ public class PontoSpawn : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    Update()
     {
         
     }

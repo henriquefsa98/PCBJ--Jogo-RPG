@@ -4,12 +4,6 @@ using UnityEngine.UI;
 public class Slot : MonoBehaviour
 {
     
-    public Text qtdTexto;
-    
-    void Start(){
-
-        //qtdTexto.text = "";
-
-    }
-
+    public Text qtdTexto;                   // armazena qtd de texto
+       
 }

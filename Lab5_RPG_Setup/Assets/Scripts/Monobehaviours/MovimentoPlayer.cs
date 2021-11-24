@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class MovimentoPlayer : MonoBehaviour
 {
-    public float VelocidadeMovimento = 3.0f;    // equivale ao momento (impulso) a ser dado ao player
-    Vector2 Movimento = new Vector2();          // detectar movimento pelo teclado
+    public float VelocidadeMovimento = 3.0f;            // equivale ao momento (impulso) a ser dado ao player
+    Vector2 Movimento = new Vector2();                  // detectar movimento pelo teclado
+    Animator animator;                                  // guarda a componente do Controlador de Animação
 
-    Animator animator;                          // guarda a componente do Controlador de Animação
-
-    // string estadoAnimacao = "EstadoAnimacao";   // guarda o nome do parametro de animação        // Desnecessario com a Blend Tree (andar tree)
-    Rigidbody2D rb2D;                           // guarda a componente CorpoRígido do Player
+    // string estadoAnimacao = "EstadoAnimacao";        // guarda o nome do parametro de animação        // Desnecessario com a Blend Tree (andar tree)
+    Rigidbody2D rb2D;                                   // guarda a componente CorpoRígido do Player
     
-    // Start is called before the first frame update
-
     /* enum EstadosCaractere                        // Desnecessario pela Blend Tree (Andar Tree)
     {
         andaLeste = 1,
@@ -23,14 +20,20 @@ public class MovimentoPlayer : MonoBehaviour
         idle = 5
     } */
 
-    void Start()
+    void /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    Start()
     {
         animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    Update()
     {
         UpdateEstado();
     }
@@ -43,7 +46,11 @@ public class MovimentoPlayer : MonoBehaviour
         MoveCaractere();
     }
 
-    private void MoveCaractere()
+    private void 
+    /// <summary>
+    /// Responsável pelo movimento do player
+    /// </summary>
+    MoveCaractere()
     {
         Movimento.x = Input.GetAxisRaw("Horizontal");
         Movimento.y = Input.GetAxisRaw("Vertical");
@@ -51,7 +58,11 @@ public class MovimentoPlayer : MonoBehaviour
         rb2D.velocity = Movimento * VelocidadeMovimento;
     }
 
-    void UpdateEstado()
+    void 
+    /// <summary>
+    /// Atuaização do frame estado do jogo
+    /// </summary>
+    UpdateEstado()
     {
         if (Mathf.Approximately(Movimento.x, 0) && (Mathf.Approximately(Movimento.y, 0)))
         {
@@ -65,6 +76,7 @@ public class MovimentoPlayer : MonoBehaviour
         animator.SetFloat("dirY", Movimento.y);
     }
 
+    // UpdateEstado antigo (sem a Blend Tree)
     /*
     private void UpdateEstado()
     {

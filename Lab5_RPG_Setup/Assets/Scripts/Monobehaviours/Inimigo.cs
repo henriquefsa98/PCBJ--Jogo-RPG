@@ -7,20 +7,31 @@ public class Inimigo : Caractere
     float pontosVida;                       // equivalente à saúde do inimigo
     public int forcaDano;                   // poder de dano
     
-    Coroutine danoCoroutine;
+    Coroutine danoCoroutine;                // Coroutine do dano
 
-    // Start is called before the first frame update
-    void Start()
+    void /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    Start()
     {
         
     }
-
-    private void OnEnable()
+    private void 
+    /// <summary>
+    /// Responsável pelo reset do player
+    /// </summary>
+    OnEnable()
     {
         ResetCaractere();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void /// <summary>
+    /// Sent when an incoming collider makes contact with this object's
+    /// collider (2D physics only).
+    /// </summary>
+    /// <param name="collision">The Collision2D data associated with this collision.</param>
+    OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -35,7 +46,12 @@ public class Inimigo : Caractere
         }
     }
 
-    void OnCollisionExit2D(Collision2D collision)
+    void /// <summary>
+    /// Sent when a collider on another object stops touching this
+    /// object's collider (2D physics only).
+    /// </summary>
+    /// <param name="collision">The Collision2D data associated with this collision.</param>
+    OnCollisionExit2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
         {
@@ -47,7 +63,11 @@ public class Inimigo : Caractere
         } 
     }
 
-    public override IEnumerator DanoCaractere(int dano, float intervalo)
+    public override IEnumerator 
+    /// <summary>
+    /// IEnumerator responsável pelo dano do player
+    /// </summary>
+    DanoCaractere(int dano, float intervalo)
     {
         while(true) 
         {
@@ -71,13 +91,19 @@ public class Inimigo : Caractere
         }
     }
 
-    public override void ResetCaractere()
+    public override void 
+    /// <summary>
+    /// Classe override que reseta o player com a vida inicial
+    /// </summary>
+    ResetCaractere()
     {
         pontosVida = inicioPontosDano;
     }
 
-    // Update is called once per frame
-    void Update()
+    void /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    Update()
     {
         
     }

@@ -2,5 +2,6 @@ using UnityEngine;
 
 public class Consumable : MonoBehaviour
 {
-    public Item item;
+    public Item item;                       // cria o objeto do item
+    
 }

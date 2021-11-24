@@ -11,14 +11,18 @@ public class HealthBar : MonoBehaviour
 
     float maxPontosDano;                // armazena a quantidade limite de "saúde" do Player
     
-    // Start is called before the first frame update
-    void Start()
+    void /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    Start()
     {
         maxPontosDano = caractere.MaxPontosDano; 
     }
-
-    // Update is called once per frame
-    void Update()
+    void /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    Update()
     {
         if (caractere != null)
         {

@@ -11,18 +11,21 @@ public class Armas : MonoBehaviour
     public int tamanhoPiscina;                          // Tamanho da Piscina
     public float velocidadeArma;                        // velocidade da Munição
 
-    AudioSource weapon;      // som de acerto
+    AudioSource weapon;                                 // som de click da arma
 
-    bool atirando;
+    bool atirando;                                      // booleano para capturar armazenar o click
     [HideInInspector]
-    public Animator animator; 
+    public Animator animator;                           // armazena o animator
 
-    Camera cameraLocal;
+    Camera cameraLocal;                                 // armazena a camera
 
-    float slopePositivo;
-    float slopeNegativo;
+    float slopePositivo;                                // slope positivo para auxiliar na localização do click em referência ao player
+    float slopeNegativo;                                // slope negativo para auxiliar na localização do click em referência ao player
 
-    enum Quadrante
+    enum /// <summary>
+    /// Armazena as direções da arma por quadrante
+    /// </summary>
+    Quadrante
     {
         Leste, 
         Sul,
@@ -30,7 +33,11 @@ public class Armas : MonoBehaviour
         Norte 
     }
 
-    private void Start()
+    private void /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    Start()
     {
         animator = GetComponent<Animator>();
         atirando = false;
@@ -45,7 +52,10 @@ public class Armas : MonoBehaviour
         weapon = GetComponent<AudioSource>();
     }
 
-    bool AcimaSlopePositivo(Vector2 posicaoEntrada)
+    bool /// <summary>
+    /// Configuração do Slope Positivo para auxiliar no click-point da arma em relação ao player
+    /// </summary>
+    AcimaSlopePositivo(Vector2 posicaoEntrada)
     {
         Vector2 posicaoPlayer = gameObject.transform.position;
         Vector2 posicaoMouse = cameraLocal.ScreenToWorldPoint(posicaoEntrada);
@@ -54,7 +64,10 @@ public class Armas : MonoBehaviour
         return entradaInterseccao > interseccaoY;
     }
 
-    bool AcimaSlopeNegativo(Vector2 posicaoEntrada)
+    bool /// <summary>
+    /// Configuração do Slope Negativo para auxiliar no click-point da arma em relação ao player
+    /// </summary>
+    AcimaSlopeNegativo(Vector2 posicaoEntrada)
     {
         Vector2 posicaoPlayer = gameObject.transform.position;
         Vector2 posicaoMouse = cameraLocal.ScreenToWorldPoint(posicaoEntrada);
@@ -63,7 +76,11 @@ public class Armas : MonoBehaviour
         return entradaInterseccao > interseccaoY;
     }
 
-    Quadrante PegaQuadrante()
+    Quadrante 
+    /// <summary>
+    /// Armazena o quadrante em que o click foi realizado em relação ao objeto do Player
+    /// </summary>
+    PegaQuadrante()
     {
         Vector2 posicaoMouse = Input.mousePosition;
         Vector2 posicaoPlayer = transform.position;
@@ -90,7 +107,11 @@ public class Armas : MonoBehaviour
         }
     }
 
-    void UpdateEstado()
+    void 
+    /// <summary>
+    /// Atualização de frame em relação ao tiro-click da arma
+    /// </summary>
+    UpdateEstado()
     {
         if (atirando)
         {
@@ -130,7 +151,10 @@ public class Armas : MonoBehaviour
         }
     }
 
-    public void Awake()
+    public void /// <summary>
+    /// Awake is called when the script instance is being loaded.
+    /// </summary>
+    Awake()
     {
         if (municaoPiscina == null)
         {
@@ -144,7 +168,10 @@ public class Armas : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -156,12 +183,18 @@ public class Armas : MonoBehaviour
         UpdateEstado();
     }
 
-    float PegaSlope(Vector2 ponto1, Vector2 ponto2)
+    float /// <summary>
+    /// Calculo de captura do slope
+    /// </summary>
+    PegaSlope(Vector2 ponto1, Vector2 ponto2)
     {
         return (ponto2.y - ponto1.y)/(ponto2.x - ponto1.x);
     }
 
-    public GameObject SpawnMunicao(Vector3 posicao)
+    public GameObject /// <summary>
+    /// Configuração do Spawn da Munição do Player
+    /// </summary>
+    SpawnMunicao(Vector3 posicao)
     {
         foreach (GameObject municao in municaoPiscina)
         {
@@ -175,7 +208,10 @@ public class Armas : MonoBehaviour
         return null;
     }
 
-    void DisparaMunicao()
+    void /// <summary>
+    /// Classe responsável pelo disparo da munição
+    /// </summary>
+    DisparaMunicao()
     {
         Vector3 posicaoMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         GameObject municao = SpawnMunicao(transform.position);
@@ -183,11 +219,14 @@ public class Armas : MonoBehaviour
         {
             Arco arcoScript = municao.GetComponent<Arco>();
             float duracaoTrajetoria = 1.0f / velocidadeArma;
-            StartCoroutine(arcoScript.arcoTrajetoria(posicaoMouse, duracaoTrajetoria));              // ******** linha não compila ********
+            StartCoroutine(arcoScript.arcoTrajetoria(posicaoMouse, duracaoTrajetoria));              
         }
     }
 
-    private void OnDestroy()
+    private void /// <summary>
+    /// Destrói a munição após utilização
+    /// </summary>
+    OnDestroy()
     {
         municaoPiscina = null;
     }

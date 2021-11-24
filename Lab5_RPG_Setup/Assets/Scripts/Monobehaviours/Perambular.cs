@@ -15,20 +15,23 @@ public class Perambular : MonoBehaviour
 
     public bool perseguePlayer;                             // indicador de perseguidor ou não
 
-    Coroutine MoverCoroutine;
+    Coroutine MoverCoroutine;                               // Coroutine Mover
 
     Rigidbody2D rb2D;                                       // armazena o componente rigidbody2D
     Animator animator;                                      // armazena o componente Animator
 
     Transform alvoTransform = null;                         // armazena o componente Transform do Alvo
 
-    Vector3 posicaoFinal;
+    Vector3 posicaoFinal;                                   // Vetor da posição final 
     float anguloAtual = 0;                                  // Angulo atribuido
 
     CircleCollider2D circleCollider;                        // Armazena o componente de Spot
 
-    // Start is called before the first frame update
-    void Start()
+    void /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    Start()
     {
         animator = GetComponent<Animator>();
         velocidadeCorrente = velocidadePerambular;
@@ -37,7 +40,11 @@ public class Perambular : MonoBehaviour
         circleCollider = GetComponent<CircleCollider2D>();
     }
 
-    private void OnDrawGizmos()
+    private void 
+    /// <summary>
+    /// Responsavel pelas linhas guias do Gizmos
+    /// </summary>
+    OnDrawGizmos()
     {
         if (circleCollider != null)
         {
@@ -45,7 +52,11 @@ public class Perambular : MonoBehaviour
         }
     } 
 
-    public IEnumerator RotinaPerambular()
+    public IEnumerator 
+    /// <summary>
+    /// Rotina de movimento da IA do inimigo
+    /// </summary>
+    RotinaPerambular()
     {
         while (true)
         {
@@ -59,20 +70,32 @@ public class Perambular : MonoBehaviour
         }
     }
 
-    void EscolheNovoPontoFinal()
+    void 
+    /// <summary>
+    /// Responsável por escolher um novo ponto final aleatorio para o trajeto do inimigo
+    /// </summary>
+    EscolheNovoPontoFinal()
     {
         anguloAtual += Random.Range(0, 360);
         anguloAtual = Mathf.Repeat(anguloAtual, 360);
         posicaoFinal += Vector3ParaAngulo(anguloAtual);
     }
 
-    Vector3 Vector3ParaAngulo(float anguloEntradaGraus)
+    Vector3 
+    /// <summary>
+    /// Calculo do angulo do vetor
+    /// </summary>
+    Vector3ParaAngulo(float anguloEntradaGraus)
     {
         float anguloEntradaRadianos = anguloEntradaGraus * Mathf.Deg2Rad;
         return new Vector3(Mathf.Cos(anguloEntradaRadianos), Mathf.Sin(anguloEntradaRadianos), 0);
     }
 
-    public IEnumerator Mover (Rigidbody2D rBParaMover, float velocidade)
+    public IEnumerator 
+    /// <summary>
+    /// Responsável pelo movimento da IA do inimigo
+    /// </summary>
+    Mover (Rigidbody2D rBParaMover, float velocidade)
     {
         float distanciaFaltante = (transform.position - posicaoFinal).sqrMagnitude;
         while (distanciaFaltante > float.Epsilon)
@@ -93,7 +116,12 @@ public class Perambular : MonoBehaviour
         animator.SetBool("Caminhando", false);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void /// <summary>
+    /// Sent when another object enters a trigger collider attached to this
+    /// object (2D physics only).
+    /// </summary>
+    /// <param name="collision">The other Collider2D involved in this collision.</param>
+    OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player") && perseguePlayer)
         {
@@ -107,7 +135,12 @@ public class Perambular : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void /// <summary>
+    /// Sent when another object leaves a trigger collider attached to
+    /// this object (2D physics only).
+    /// </summary>
+    /// <param name="collision">The other Collider2D involved in this collision.</param>
+    OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -120,7 +153,10 @@ public class Perambular : MonoBehaviour
             alvoTransform = null;
         }
     }
-    void Update()
+    void /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    Update()
     {
         Debug.DrawLine(rb2D.position, posicaoFinal, Color.red);
     }

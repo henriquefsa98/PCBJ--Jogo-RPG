@@ -5,8 +5,11 @@ using Cinemachine;
 
 public class ArredondaPosCamera : CinemachineExtension
 {
-    public float PixelsPerUnit = 32;
-    protected override void PostPipelineStageCallback(CinemachineVirtualCameraBase vcam, CinemachineCore.Stage stage, ref CameraState state, float deltaTime)
+    public float PixelsPerUnit = 32;                    // armazena a quantidade de pixel por unidade
+    protected override void /// <summary>
+    /// Configuração da camera em referencia ao player
+    /// </summary>
+    PostPipelineStageCallback(CinemachineVirtualCameraBase vcam, CinemachineCore.Stage stage, ref CameraState state, float deltaTime)
     {
         if (stage == CinemachineCore.Stage.Body)
         {
@@ -16,7 +19,11 @@ public class ArredondaPosCamera : CinemachineExtension
         }
     }
 
-    float Round (float x)
+    float 
+    /// <summary>
+    /// Float auxiliar para calculo de configuração de câmera
+    /// </summary>
+    Round (float x)
     {
         return Mathf.Round(x * PixelsPerUnit ) / PixelsPerUnit;
     }

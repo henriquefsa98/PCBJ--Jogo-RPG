@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class Arco : MonoBehaviour
 {
-    public IEnumerator arcoTrajetoria (Vector3 destino, float duracao)
+    public IEnumerator /// <summary>
+    /// Classe da configuração da trajetoria do tiro
+    /// </summary>
+    arcoTrajetoria (Vector3 destino, float duracao) 
     {
         var posicaoInicial = transform.position;
         var percentualCompleto = 0.0f;
