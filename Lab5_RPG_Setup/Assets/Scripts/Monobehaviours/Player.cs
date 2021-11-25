@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : Caractere
 {
@@ -10,6 +11,10 @@ public class Player : Caractere
     HealthBar healthBar;
     public PontosDano pontosDano;                   // tem o valor da "saúde" do objeto
     public AudioSource weapon;                      // som do click da arma
+
+    bool playerWin=false;
+
+    int qtdItensInventário=0;
     
     private void /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -126,6 +131,17 @@ public class Player : Caractere
                 }
                 if (DeveDesaparecer)
                 {
+
+                    // adcionar aqui chamada de código que verificará se o inventário está lotado!
+                    
+                    playerWin = IncrementaQtdInventario(1);
+
+                    if(playerWin){
+
+                        ProximaFase();
+
+                    }
+
                     collision.gameObject.SetActive(false);
                 }
             }            
@@ -147,4 +163,34 @@ public class Player : Caractere
 
         else return false;     
     }
+
+    bool IncrementaQtdInventario(int quantidade=1){
+
+        qtdItensInventário += quantidade;
+
+        if (qtdItensInventário >= 25) return true;
+
+        return false;
+
+    }
+
+    void ProximaFase(){
+
+
+        string sceneAtual = SceneManager.GetActiveScene().name;
+
+        if(sceneAtual == "Tela 1"){    // Se o jogador estiver na Tela 1, carrega a Tela 2
+            
+            // Resetar o inventario!
+            SceneManager.LoadScene("Tela 2");
+
+        }
+        else{
+
+            SceneManager.LoadScene("Tela Win");
+
+        }
+
+    }
+
 }

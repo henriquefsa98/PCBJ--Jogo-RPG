@@ -187,6 +187,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2409328586184081857, guid: b19a4b02ab0bbc444a7214e7ee22b64b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3755697024362264184, guid: b19a4b02ab0bbc444a7214e7ee22b64b, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: a6401296a5c77a44e8d7bea2c2468e31, type: 2}
     - target: {fileID: 5803543595801436544, guid: b19a4b02ab0bbc444a7214e7ee22b64b, type: 3}
       propertyPath: m_Name
       value: CristalAzulO (4)
@@ -650,7 +658,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000017881393, y: 0.00000023841858, z: -10}
+  m_LocalPosition: {x: -0.000000059604645, y: 0.00000023841858, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -782,7 +790,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613594162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000017881393, y: 0.00000023841858, z: -10}
+  m_LocalPosition: {x: -0.000000059604645, y: 0.00000023841858, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1959390345}
@@ -1168,6 +1176,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1209484527107024605, guid: cb6a8e038f72d7349ae53a0921448085, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: a8d2c45ceb34b6840b426c2f1f76fc77, type: 2}
     - target: {fileID: 7362416567366503652, guid: cb6a8e038f72d7349ae53a0921448085, type: 3}
       propertyPath: m_Name
       value: CristalVermelhoO (1)
@@ -5573,6 +5585,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2409328586184081857, guid: b19a4b02ab0bbc444a7214e7ee22b64b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3755697024362264184, guid: b19a4b02ab0bbc444a7214e7ee22b64b, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: a6401296a5c77a44e8d7bea2c2468e31, type: 2}
     - target: {fileID: 5803543595801436544, guid: b19a4b02ab0bbc444a7214e7ee22b64b, type: 3}
       propertyPath: m_Name
       value: CristalAzulO (2)
@@ -5630,6 +5650,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1209484527107024605, guid: cb6a8e038f72d7349ae53a0921448085, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: a8d2c45ceb34b6840b426c2f1f76fc77, type: 2}
     - target: {fileID: 7362416567366503652, guid: cb6a8e038f72d7349ae53a0921448085, type: 3}
       propertyPath: m_Name
       value: CristalVermelhoO
@@ -5687,6 +5711,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2409328586184081857, guid: b19a4b02ab0bbc444a7214e7ee22b64b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3755697024362264184, guid: b19a4b02ab0bbc444a7214e7ee22b64b, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: a6401296a5c77a44e8d7bea2c2468e31, type: 2}
     - target: {fileID: 5803543595801436544, guid: b19a4b02ab0bbc444a7214e7ee22b64b, type: 3}
       propertyPath: m_Name
       value: CristalAzulO (3)
@@ -5744,6 +5776,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1209484527107024605, guid: cb6a8e038f72d7349ae53a0921448085, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: a8d2c45ceb34b6840b426c2f1f76fc77, type: 2}
     - target: {fileID: 7362416567366503652, guid: cb6a8e038f72d7349ae53a0921448085, type: 3}
       propertyPath: m_Name
       value: CristalVermelhoO (3)
@@ -5972,6 +6008,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1209484527107024605, guid: cb6a8e038f72d7349ae53a0921448085, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: a8d2c45ceb34b6840b426c2f1f76fc77, type: 2}
     - target: {fileID: 7362416567366503652, guid: cb6a8e038f72d7349ae53a0921448085, type: 3}
       propertyPath: m_Name
       value: CristalVermelhoO (2)
@@ -13658,6 +13698,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2409328586184081857, guid: b19a4b02ab0bbc444a7214e7ee22b64b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3755697024362264184, guid: b19a4b02ab0bbc444a7214e7ee22b64b, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: a6401296a5c77a44e8d7bea2c2468e31, type: 2}
     - target: {fileID: 5803543595801436544, guid: b19a4b02ab0bbc444a7214e7ee22b64b, type: 3}
       propertyPath: m_Name
       value: CristalAzulO
@@ -13715,6 +13763,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1209484527107024605, guid: cb6a8e038f72d7349ae53a0921448085, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: a8d2c45ceb34b6840b426c2f1f76fc77, type: 2}
     - target: {fileID: 7362416567366503652, guid: cb6a8e038f72d7349ae53a0921448085, type: 3}
       propertyPath: m_Name
       value: CristalVermelhoO (4)
@@ -13859,6 +13911,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2409328586184081857, guid: b19a4b02ab0bbc444a7214e7ee22b64b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3755697024362264184, guid: b19a4b02ab0bbc444a7214e7ee22b64b, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: a6401296a5c77a44e8d7bea2c2468e31, type: 2}
     - target: {fileID: 5803543595801436544, guid: b19a4b02ab0bbc444a7214e7ee22b64b, type: 3}
       propertyPath: m_Name
       value: CristalAzulO (1)
