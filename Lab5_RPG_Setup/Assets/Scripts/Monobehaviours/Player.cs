@@ -78,6 +78,8 @@ public class Player : Caractere
         base.KillCaractere();
         Destroy(healthBar.gameObject);
         Destroy(inventario.gameObject);
+
+        SceneManager.LoadScene("Tela Dead");
     }
 
     private void /// <summary>
@@ -132,10 +134,12 @@ public class Player : Caractere
                 if (DeveDesaparecer)
                 {
 
-                    // adcionar aqui chamada de código que verificará se o inventário está lotado!
-                    
-                    playerWin = IncrementaQtdInventario(1);
+                    if(DanoObjeto.tipoItem != Item.TipoItem.HEALTH){
 
+                        playerWin = IncrementaQtdInventario(1);
+
+                    }
+                    
                     if(playerWin){
 
                         ProximaFase();
@@ -168,7 +172,7 @@ public class Player : Caractere
 
         qtdItensInventário += quantidade;
 
-        if (qtdItensInventário >= 25) return true;
+        if (qtdItensInventário >= 25) return true;   // Parametro correto = 25
 
         return false;
 

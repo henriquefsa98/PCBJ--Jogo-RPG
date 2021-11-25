@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tela Win.unity
     guid: 912905a075f7c304fb7bab5553a5b60a
+  - enabled: 1
+    path: Assets/Scenes/Tela Dead.unity
+    guid: 3384297216afa9f4c9d35f6b5ed5ebc2
+  - enabled: 1
+    path: Assets/Scenes/Tela Creditos.unity
+    guid: f2c7726fea9719248bdd446aa4815098
+  - enabled: 1
+    path: Assets/Scenes/Tela Start.unity
+    guid: ffa60afc2d67a5c418f2926bb52bf5b7
   m_configObjects: {}
