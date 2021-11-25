@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Tela Start.unity
+- path: Assets/Scenes/Tela Creditos.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
